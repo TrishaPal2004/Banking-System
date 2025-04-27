@@ -1,70 +1,164 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 🏦 Vardhan Bank - Online Banking System (React + Node.js + MongoDB)
 
-## Available Scripts
+This is a **full-fledged online banking web application** built with a **ReactJS frontend**, a **Node.js backend**, and a **MongoDB database**.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### ✨ Frontend (ReactJS)
+- Home page with Services, About Us, and Contact
+- Secure Login
+- User Dashboard
+- Transaction management
+- Fund Transfer
+- Balance Inquiry
+- Cheque Payment
+- Responsive UI
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+### ✨ Backend (Node.js)
+- Handles user authentication, fund transfer, transaction history, etc.
+- Routes for Login, Signup, Fund Transfer, Transactions
+- MongoDB integration for data storage
+- Password Hashing for security
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+### ✨ Database (MongoDB)
+- Stores user data
+- Stores transaction data
+- Stores account balance
+- Stores cheque request and address update requests
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🛠 Tech Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Part      | Technology |
+|:---------:|:----------:|
+| Frontend  | ReactJS ⚛️ |
+| Backend   | Node.js 🚀 |
+| Database  | MongoDB 🍃 |
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📂 Project Folder Structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+/admin                (React Frontend)
+/backend              (Node.js Backend)
+/backend/models       (Mongoose Models)
+/backend/routes       (Express Routes)
+/backend/controllers  (Controller Logic)
+/README.md            (This file)
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🧩 Setup Instructions
 
-## Learn More
+### 1. Clone the Repository
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+git clone https://github.com/TrishaPal2004/Banking-System.git
+cd Banking-System
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+### 2. Install Frontend Dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+cd admin
+npm install
+```
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 3. Install Backend Dependencies
 
-### Making a Progressive Web App
+```bash
+cd ../backend
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+### 4. Setup Environment Variables
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Inside `/backend`, create a file called `.env`:
 
-### Deployment
+```plaintext
+PORT=5000
+MONGO_URI=your_mongodb_connection_string_here
+JWT_SECRET=your_secret_key_here
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+(Replace `your_mongodb_connection_string_here` with your MongoDB Atlas or local connection URI.)
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 5. Start the Backend Server
+
+```bash
+cd backend
+npm start
+```
+Backend will run on:  
+🔗 `http://localhost:5000`
+
+---
+
+### 6. Start the Frontend React App
+
+```bash
+cd admin
+npm start
+```
+Frontend will run on:  
+🔗 `http://localhost:3000`
+
+---
+
+## ⚡ Important Notes
+
+- Frontend communicates with backend via `http://localhost:5000` during development.
+- Replace API base URLs when deploying to production.
+- MongoDB must be running (either **local MongoDB** or **MongoDB Atlas**).
+
+---
+
+## 👩‍💻 Author
+
+**Trisha Pal**  
+- GitHub: [@TrishaPal2004](https://github.com/TrishaPal2004)
+
+---
+
+# 📢 Deployment
+
+| Service        | Purpose                 |
+|:---------------|:------------------------:|
+| Vercel          | Frontend Hosting         |
+| Render / Railway | Backend Hosting         |
+| MongoDB Atlas  | Database Hosting          |
+
+---
+
+```
+
+---
+
+### Instructions for the file:
+
+1. **Clone the Repo**: Copy the code into your terminal.
+2. **Install Dependencies**: Both frontend and backend.
+3. **Setup Environment**: Add `.env` in the backend folder.
+4. **Start Servers**: Start backend and frontend separately.
+
+---
+
+Now you have a **full stack application** ready! Would you like to proceed with deploying it somewhere like **Vercel** or **Render**? Let me know if you'd need that as well! 🚀

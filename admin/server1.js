@@ -439,6 +439,65 @@ app.post("/admin/approvecheque/:requestId", async (req, res) => {
       console.log(user.balance);
       console.log(user2.balance);
       cheque.status = "approved";
+      const timestamp = new Date();
+      // Update sender's balance and add transaction
+      await User.updateOne(
+        { _id: fromuserID },
+        { 
+         
+          $push: { 
+            transactions: { 
+              type: "debit", 
+              amount:cheque.amount, 
+              timestamp: timestamp,
+              description: `Transfer to ${user2.username || touserID} by Cheque`
+            } 
+          }
+        }
+      );
+      
+      // Update recipient's balance and add transaction
+      await User.updateOne(
+        { _id: touserID },
+        { 
+          
+          $push: { 
+            transactions: { 
+              type: "credit", 
+              amount: cheque.amount, 
+              timestamp: timestamp,
+              description: `Transfer from ${user.username || fromuserID} by Cheque`
+            } 
+          }
+        },
+        await Statement.updateOne(
+          { userId: fromuserID, type: "monthly" },
+          {
+            $push: {
+              entries: {
+                date: timestamp,
+                description: `Transferred Rs ${cheque.amount} to ${user2.username} by Cheque`,
+                amount: -cheque.amount,
+              },
+            },
+          },
+          { upsert: true }
+        ),
+    
+        await Statement.updateOne(
+          { userId: touserID, type: "monthly" },
+          {
+            $push: {
+              entries: {
+                date: timestamp,
+                description: `Received Rs ${cheque.amount} from ${user.username} by Cheque`,
+                amount: cheque.amount,
+              },
+            },
+          },
+          { upsert: true }
+        )
+      );
     } else {
       cheque.status = "rejected";
     }
