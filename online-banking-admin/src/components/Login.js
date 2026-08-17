@@ -4,7 +4,7 @@ import './style.css';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({ username: "", password: "" });
-    const [loginType, setLoginType] = useState("user"); // Default to user login
+    //const [loginType, setLoginType] = useState("user"); // Default to user login
     
     const navigate = useNavigate();
     
