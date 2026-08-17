@@ -45,7 +45,7 @@ const UserDashboard = () => {
       console.log("Requesting transactions for:", `${userData._id}`);
 
       const response = await fetch(
-        "http://localhost:5000/api/auth/transactions1",
+        "https://banking-system-fxs0.onrender.com/api/auth/transactions1",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -76,7 +76,7 @@ const UserDashboard = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/balanceenquiry1",
+        "https://banking-system-fxs0.onrender.com/api/auth/balanceenquiry1",
         {
           method: "POST",
           headers: {
@@ -106,7 +106,7 @@ const UserDashboard = () => {
   const handleFundTransfer = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/auth/transfer1", {
+      const response = await fetch("https://banking-system-fxs0.onrender.com/api/auth/transfer1", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -171,7 +171,7 @@ const UserDashboard = () => {
       console.log("Requesting address change for:", `${userData._id}`);
 
       const response = await fetch(
-        "http://localhost:5000/api/auth/request-address-change",
+        "https://banking-system-fxs0.onrender.com/api/auth/request-address-change",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -204,7 +204,7 @@ const UserDashboard = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/statements",
+        "https://banking-system-fxs0.onrender.com/api/auth/statements",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -252,7 +252,7 @@ const UserDashboard = () => {
     e.preventDefault();
 
     try {
-        const response = await fetch("http://localhost:5000/api/auth/cheques", {
+        const response = await fetch("https://banking-system-fxs0.onrender.com/api/auth/cheques", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ fromuserID:userData._id,touserID: userData.userId, amount: parseFloat(userData.amount) }), // Send userID and balance

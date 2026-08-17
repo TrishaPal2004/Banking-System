@@ -67,7 +67,7 @@ const OnlineBankingAdmin = () => {
   const handleCreateUser = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5001/createUser", {
+      const response = await fetch("https://banking-system-1-1wl8.onrender.com/createUser", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -88,7 +88,7 @@ const OnlineBankingAdmin = () => {
     e.preventDefault();
   
     try {
-      const response = await fetch("http://localhost:5001/balanceenquiry", {
+      const response = await fetch("https://banking-system-1-1wl8.onrender.com/balanceenquiry", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -124,7 +124,7 @@ const OnlineBankingAdmin = () => {
   
   const fetchUsers = async () => {  // ✅ Now a global function (reusable)
     try {
-      const response = await fetch("http://localhost:5001/getUsers");
+      const response = await fetch("https://banking-system-1-1wl8.onrender.com/getUsers");
       if (!response.ok) throw new Error("Failed to fetch users");
   
       const data = await response.json();
@@ -290,7 +290,7 @@ const OnlineBankingAdmin = () => {
 
     try {
       // First try to get user from backend
-      const response = await fetch("http://localhost:5001/transactions", {
+      const response = await fetch("https://banking-system-1-1wl8.onrender.com/transactions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -344,7 +344,7 @@ const OnlineBankingAdmin = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5001/statements", {
+      const response = await fetch("https://banking-system-1-1wl8.onrender.com/statements", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId: userData.userId, type: "monthly" }),
