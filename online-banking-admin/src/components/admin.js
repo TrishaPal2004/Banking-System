@@ -26,7 +26,7 @@ const OnlineBankingAdmin = () => {
   });
 
   // Add a state for transactions
-  const [transactions, setTransactions] = useState([]);
+  const [, setTransactions] = useState([]);
 
   // Mock data
   const [users, setUsers] = useState([]);
@@ -143,7 +143,7 @@ const OnlineBankingAdmin = () => {
   const handleFundTransfer = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5001/transfer", {
+      const response = await fetch("https://banking-system-1-1wl8.onrender.com/transfer", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -203,7 +203,7 @@ const OnlineBankingAdmin = () => {
   const fetchPendingRequests = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5001/get-pending-address-requests"
+        "https://banking-system-1-1wl8.onrender.com/get-pending-address-requests"
       );
       const data = await response.json();
       setAddressRequests(data);
@@ -216,7 +216,7 @@ const OnlineBankingAdmin = () => {
   const handleAdminDecision = async (requestId, decision) => {
     try {
       const response = await fetch(
-        `http://localhost:5001/admin/address-change/${requestId}`,
+        `https://banking-system-1-1wl8.onrender.com/admin/address-change/${requestId}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -249,7 +249,7 @@ const OnlineBankingAdmin = () => {
   const fetchPendingRequests2 = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5001/get-pending-cheque-requests"
+        "https://banking-system-1-1wl8.onrender.com/get-pending-cheque-requests"
       );
       const data = await response.json();
       console.log(data);
@@ -262,7 +262,7 @@ const OnlineBankingAdmin = () => {
   const handleStopCheque = async (requestId,fromuserID,touserID, decision) => {
     try {
       const response = await fetch(
-        `http://localhost:5001/admin/approvecheque/${requestId}`,
+        `https://banking-system-1-1wl8.onrender.com/admin/approvecheque/${requestId}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -357,7 +357,7 @@ const OnlineBankingAdmin = () => {
 
       const data = await response.json();
     
-      const user = users.find((u) => u.id === userData.userId);
+      //const user = users.find((u) => u.id === userData.userId);
       // console.log("User Found:", userData.userId); // 🛠 Debugging Log
       console.log(data);
       setSelectedUser({
