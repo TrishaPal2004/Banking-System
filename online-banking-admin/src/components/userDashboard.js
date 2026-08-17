@@ -219,7 +219,7 @@ const UserDashboard = () => {
 
       const data = await response.json();
 
-      const user = users.find((u) => u.id === userData.userId);
+      //const user = users.find((u) => u.id === userData.userId);
       // console.log("User Found:", userData.userId); // 🛠 Debugging Log
       console.log("hi");
       console.log({
